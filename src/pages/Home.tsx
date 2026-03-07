@@ -3,11 +3,11 @@ import { motion } from 'motion/react';
 const Droplets = () => {
   const droplets = [
     { left: '15%', delay: 0, duration: 3.5, width: 1, height: 40 },
-    { left: '35%', delay: 1.5, duration: 2.8, width: 2, height: 80 },
-    { left: '55%', delay: 0.5, duration: 4.2, width: 1, height: 60 },
-    { left: '75%', delay: 2.2, duration: 3.0, width: 3, height: 100 },
-    { left: '85%', delay: 1.2, duration: 3.8, width: 1.5, height: 50 },
-    { left: '95%', delay: 0.8, duration: 2.5, width: 2, height: 120 },
+    { left: '35%', delay: 1.5, duration: 2.8, width: 1, height: 35 },
+    { left: '55%', delay: 0.5, duration: 4.2, width: 1, height: 45 },
+    { left: '75%', delay: 2.2, duration: 3.0, width: 1, height: 30 },
+    { left: '85%', delay: 1.2, duration: 3.8, width: 1, height: 40 },
+    { left: '95%', delay: 0.8, duration: 2.5, width: 1, height: 35 },
   ];
 
   return (
@@ -28,7 +28,7 @@ const Droplets = () => {
               ease: "linear",
               times: [0, 0.1, 0.9, 1]
             }}
-            className="absolute bg-gradient-to-b from-purple-300/0 via-purple-400 to-purple-500 rounded-full left-1/2 -translate-x-1/2"
+            className="absolute bg-gradient-to-b from-white/0 via-pink-200 to-pink-300 rounded-full left-1/2 -translate-x-1/2"
             style={{
               width: d.width,
               height: d.height
@@ -47,32 +47,28 @@ export default function Home() {
         <h1 className="text-[3.5rem] leading-none font-bold tracking-tight mb-2 relative z-10 px-2 py-1 -ml-2">
           Hey, I'm Oscar
           <motion.div
-            initial={{ width: "0%" }}
-            animate={{ width: "100%" }}
+            initial={{ width: "0%", height: "0%" }}
+            animate={{ width: "100%", height: "100%" }}
             transition={{ duration: 1.8, delay: 1.1, ease: "easeInOut" }}
-            className="absolute left-0 top-0 bottom-0 bg-zinc-200/60 rounded-md -z-10"
+            className="absolute left-0 top-0 bg-zinc-200/60 border border-zinc-300/80 rounded-sm -z-10"
           />
+          {/* Yellow cursor decoration */}
+          <motion.div
+            initial={{ left: "0%", top: "0%", opacity: 0 }}
+            animate={{ left: "100%", top: "100%", opacity: 1 }}
+            transition={{ 
+              left: { duration: 1.8, delay: 1.1, ease: "easeInOut" },
+              top: { duration: 1.8, delay: 1.1, ease: "easeInOut" },
+              opacity: { duration: 0.4, delay: 0.7 }
+            }}
+            className="absolute text-yellow-400 z-20 pointer-events-none"
+            style={{ marginLeft: '-6px', marginTop: '-6px' }}
+          >
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="#FACC15" xmlns="http://www.w3.org/2000/svg" style={{ filter: 'drop-shadow(0px 2px 4px rgba(0,0,0,0.2))' }}>
+              <path d="M4 4L11.07 20.97L13.58 13.58L20.97 11.07L4 4Z" />
+            </svg>
+          </motion.div>
         </h1>
-        {/* Yellow cursor decoration */}
-        <motion.div
-          initial={{ left: "0%", top: "60%", opacity: 0 }}
-          animate={{ 
-            left: ["0%", "0%", "100%", "100%"], 
-            top: ["60%", "60%", "60%", "75%"],
-            opacity: [0, 1, 1, 1] 
-          }}
-          transition={{ 
-            duration: 3, 
-            delay: 0.5, 
-            ease: "easeInOut",
-            times: [0, 0.2, 0.8, 1]
-          }}
-          className="absolute text-yellow-400 transform -ml-2 z-20 pointer-events-none"
-        >
-          <svg width="36" height="36" viewBox="0 0 24 24" fill="#FACC15" xmlns="http://www.w3.org/2000/svg" style={{ filter: 'drop-shadow(0px 2px 4px rgba(0,0,0,0.2))' }}>
-            <path d="M4 4L11.07 20.97L13.58 13.58L20.97 11.07L4 4Z" stroke="white" strokeWidth="1.5" strokeLinejoin="round"/>
-          </svg>
-        </motion.div>
       </div>
 
       <div className="flex items-center justify-between p-4 bg-white border border-zinc-200 rounded-xl mb-12 shadow-sm">

@@ -1,5 +1,18 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Sidebar from './Sidebar';
+
+function RealTimeClock() {
+  const [time, setTime] = useState(new Date());
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTime(new Date());
+    }, 1000);
+    return () => clearInterval(timer);
+  }, []);
+
+  return <div>{time.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', second: '2-digit' })}</div>;
+}
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -12,7 +25,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <footer className="border-t border-zinc-200 py-4 px-8 flex justify-between items-center text-sm text-zinc-500 bg-[#f8f9fa] w-full mt-auto">
           <a href="#" className="hover:text-zinc-900 transition-colors">Reach out →</a>
           <div>Made by Oscar | © 2026</div>
-          <div>{new Date().toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', second: '2-digit' })}</div>
+          <RealTimeClock />
         </footer>
       </main>
     </div>

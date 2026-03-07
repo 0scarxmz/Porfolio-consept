@@ -1,83 +1,118 @@
+import { motion, useScroll, useSpring } from 'motion/react';
+import { useRef } from 'react';
+
 export default function Experience() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start center", "end center"]
+  });
+
+  const scaleY = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
+
   const experiences = [
     {
-      period: 'Nov 2022 - Present',
+      period: '2024 - Present',
       role: 'Founding Engineer',
-      company: 'kay.ai',
-      description: 'Building workflow automation for insurance brokers.',
+      company: 'RISE',
+      description: 'Building and founding RISE as my main project.',
       points: [
-        'Led the team to develop Influencerbit - Customer Led Influencer Marketing Platform for E-Commerce Brands.',
-        'Built Engagebud - Gamification Platform for Ecommerce.',
-        'Scaled backend to handle 13M+ users and generated 6M+ discount codes',
-        'Raised $100K funding from Upekkha, a SaaS accelerator.'
+        'Frontend: Next.js 15, React 18, TypeScript, Tailwind CSS 4',
+        'Backend: Next.js App Router with server components, route handlers, and server-side auth checks',
+        'Database: PostgreSQL with Prisma',
+        'Auth / storage / realtime: Supabase',
+        'Payments: Stripe',
+        'AI: Google Gemini and OpenAI Whisper for transcription/captioning',
+        'Video/media: FFmpeg WebAssembly, YouTube/TikTok download + upload flows, plus Firebase Admin/Storage support'
       ],
-      tags: ['React', 'Typescript', 'Rails', 'PostgreSQL', 'Javascript']
-    },
-    {
-      period: 'Aug 2021 - Nov 2022',
-      role: 'Product Engineer',
-      company: 'ProfileBud',
-      description: 'Led frontend development, created payment and admin portals, developed GoLang server.',
-      points: [
-        'Led the frontend development for the company as one of the founding members.',
-        'Learned and made responsive websites, blogs via Gatsby, payment and admin portals following Agile principles.',
-        'Developed a GoLang server to handle 20M+ users data with 1K+ req/s.'
-      ],
-      tags: ['React', 'Rails', 'GoLang', 'Gatsby', 'Javascript']
+      tags: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'PostgreSQL', 'Supabase', 'Stripe', 'Gemini', 'FFmpeg', 'Firebase']
     }
   ];
 
   return (
-    <div className="max-w-3xl animate-in fade-in slide-in-from-bottom-4 duration-500">
-      <div className="relative border-l-2 border-blue-400/30 ml-4 md:ml-32 space-y-24 pb-12">
-        {experiences.map((exp, index) => (
-          <div key={index} className="relative pl-8 md:pl-24">
-            {/* Timeline dot */}
-            <div className="absolute -left-[11px] top-1 w-5 h-5 rounded-full bg-zinc-100 border-4 border-white shadow-sm flex items-center justify-center">
-              <div className="w-2 h-2 rounded-full bg-zinc-300"></div>
-            </div>
-            
-            {/* Period (desktop: left, mobile: top) */}
-            <div className="md:absolute md:-left-32 md:top-0 text-zinc-500 font-medium mb-2 md:mb-0">
-              {exp.period}
-            </div>
+    <div className="max-w-5xl animate-in fade-in slide-in-from-bottom-4 duration-500">
+      <div ref={containerRef} className="relative ml-4 md:ml-12 pb-12">
+        
+        {/* Background static line */}
+        <div className="absolute left-0 top-8 bottom-0 w-[2px] bg-zinc-200" />
+        
+        {/* Animated scroll line */}
+        <motion.div 
+          className="absolute left-0 top-8 bottom-0 w-[2px] bg-blue-500 origin-top"
+          style={{ scaleY }}
+        />
 
-            {/* Content */}
-            <div>
-              <h3 className="text-xl font-bold text-zinc-900 mb-1">
-                {exp.role} · {exp.company}
-              </h3>
-              <p className="text-zinc-600 mb-4 text-sm leading-relaxed">
-                {exp.description}
-              </p>
-              <ul className="space-y-3 mb-6">
-                {exp.points.map((point, i) => (
-                  <li key={i} className="text-sm text-zinc-600 flex items-start gap-2">
-                    <span className="text-zinc-400 mt-1.5 text-xs">•</span>
-                    <span className="leading-relaxed">{point}</span>
-                  </li>
-                ))}
-              </ul>
-              <div className="flex flex-wrap gap-2">
-                {exp.tags.map(tag => (
-                  <span key={tag} className="px-2.5 py-1 bg-zinc-100 text-zinc-600 text-xs font-medium rounded-md border border-zinc-200/50">
-                    {tag}
-                  </span>
-                ))}
+        {/* Header Section */}
+        <div className="mb-20 pl-12 pt-6">
+          <h1 className="text-4xl font-bold text-zinc-900 mb-4">Changelog from my journey</h1>
+          <p className="text-zinc-600">
+            I've been working on RISE for the past month.<br/>
+            Here's a timeline of my journey.
+          </p>
+        </div>
+
+        {/* Experience Items */}
+        <div className="space-y-24">
+          {experiences.map((exp, index) => (
+            <div key={index} className="relative pl-12">
+              {/* Timeline dot */}
+              <div className="absolute -left-[15px] top-1 w-8 h-8 rounded-full bg-white flex items-center justify-center z-10 shadow-sm">
+                <div className="w-3 h-3 rounded-full bg-zinc-200"></div>
+              </div>
+              
+              <div className="flex flex-col md:flex-row gap-4 md:gap-12">
+                {/* Period */}
+                <div className="md:w-48 shrink-0 text-zinc-500 font-medium text-lg mt-1">
+                  {exp.period}
+                </div>
+
+                {/* Content */}
+                <div className="flex-1">
+                  <h3 className="text-xl font-bold text-zinc-900 mb-2">
+                    {exp.role} · {exp.company}
+                  </h3>
+                  <p className="text-zinc-600 mb-6 text-sm leading-relaxed">
+                    {exp.description}
+                  </p>
+                  <ul className="space-y-4 mb-8">
+                    {exp.points.map((point, i) => {
+                      const colonIndex = point.indexOf(':');
+                      if (colonIndex !== -1) {
+                        const label = point.substring(0, colonIndex + 1);
+                        const value = point.substring(colonIndex + 1);
+                        return (
+                          <li key={i} className="text-sm text-zinc-600 flex items-start gap-3">
+                            <span className="text-zinc-300 mt-1.5 text-[10px]">●</span>
+                            <span className="leading-relaxed">
+                              <strong className="font-semibold text-zinc-800">{label}</strong>{value}
+                            </span>
+                          </li>
+                        );
+                      }
+                      return (
+                        <li key={i} className="text-sm text-zinc-600 flex items-start gap-3">
+                          <span className="text-zinc-300 mt-1.5 text-[10px]">●</span>
+                          <span className="leading-relaxed">{point}</span>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                  <div className="flex flex-wrap gap-2">
+                    {exp.tags.map(tag => (
+                      <span key={tag} className="px-3 py-1.5 bg-zinc-100 text-zinc-600 text-xs font-medium rounded-md border border-zinc-200/50">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
-        
-        {/* Gradient line at the bottom */}
-        <div className="absolute bottom-0 left-[-2px] w-[2px] h-24 bg-gradient-to-b from-blue-400/30 to-purple-400/30"></div>
-      </div>
-
-      <div className="mt-12 ml-4 md:ml-32">
-        <a href="#" className="inline-flex items-center gap-2 text-sm font-medium text-zinc-900 hover:text-zinc-600 transition-colors">
-          View Full Resume
-          <svg className="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-        </a>
+          ))}
+        </div>
       </div>
     </div>
   );
