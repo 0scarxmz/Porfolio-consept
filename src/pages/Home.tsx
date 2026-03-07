@@ -2,85 +2,38 @@ import { motion } from 'motion/react';
 
 const Droplets = () => {
   const droplets = [
-    { left: '25%', delay: 0, duration: 4 },
-    { left: '85%', delay: 2, duration: 4.5 },
-  ];
-
-  const particles = [
-    { x: -12, y: -6, size: 4, opacity: 0.8 },
-    { x: -6, y: -10, size: 5, opacity: 1 },
-    { x: 2, y: -14, size: 4, opacity: 0.7 },
-    { x: 8, y: -8, size: 5, opacity: 0.9 },
-    { x: -10, y: 2, size: 6, opacity: 1 },
-    { x: -2, y: -2, size: 5, opacity: 0.8 },
-    { x: 6, y: 0, size: 6, opacity: 1 },
-    { x: -16, y: 8, size: 4, opacity: 0.6 },
-    { x: -6, y: 10, size: 5, opacity: 0.9 },
-    { x: 2, y: 12, size: 4, opacity: 0.7 },
-    { x: 10, y: 6, size: 5, opacity: 0.8 },
-    { x: 16, y: 2, size: 4, opacity: 0.6 },
-    // Stray particles
-    { x: -24, y: -20, size: 4, opacity: 0.5 },
-    { x: 28, y: -12, size: 3, opacity: 0.4 },
-    { x: 18, y: -24, size: 4, opacity: 0.5 },
+    { left: '15%', delay: 0, duration: 3.5, width: 1, height: 40 },
+    { left: '35%', delay: 1.5, duration: 2.8, width: 2, height: 80 },
+    { left: '55%', delay: 0.5, duration: 4.2, width: 1, height: 60 },
+    { left: '75%', delay: 2.2, duration: 3.0, width: 3, height: 100 },
+    { left: '85%', delay: 1.2, duration: 3.8, width: 1.5, height: 50 },
+    { left: '95%', delay: 0.8, duration: 2.5, width: 2, height: 120 },
   ];
 
   return (
-    <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden rounded-2xl">
+    <div className="absolute inset-0 pointer-events-none z-0 rounded-2xl">
       {droplets.map((d, i) => (
         <div key={i} className="absolute top-0 bottom-0 w-16 -ml-8" style={{ left: d.left }}>
           {/* Falling Drop */}
           <motion.div
-            initial={{ top: "-20%", opacity: 0, scaleY: 1 }}
+            initial={{ top: "-100vh", opacity: 0 }}
             animate={{ 
-              top: ["-20%", "85%", "85%", "85%"], 
-              opacity: [0, 1, 0, 0],
-              scaleY: [1, 1, 0, 0]
+              top: ["-100vh", "150%"], 
+              opacity: [0, 1, 1, 0]
             }}
             transition={{ 
               repeat: Infinity, 
               duration: d.duration, 
               delay: d.delay,
               ease: "linear",
-              times: [0, 0.8, 0.81, 1]
+              times: [0, 0.1, 0.9, 1]
             }}
-            className="absolute w-[2px] h-12 bg-gradient-to-b from-purple-300/0 via-purple-400 to-purple-500 rounded-full left-1/2 -translate-x-1/2 origin-bottom"
+            className="absolute bg-gradient-to-b from-purple-300/0 via-purple-400 to-purple-500 rounded-full left-1/2 -translate-x-1/2"
+            style={{
+              width: d.width,
+              height: d.height
+            }}
           />
-          
-          {/* Explosion / Splash Particles */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0 }}
-            animate={{ 
-              opacity: [0, 0, 1, 1, 0],
-              scale: [0, 0, 1, 1.2, 1.2]
-            }}
-            transition={{ 
-              repeat: Infinity, 
-              duration: d.duration, 
-              delay: d.delay,
-              ease: "easeOut",
-              times: [0, 0.8, 0.82, 0.95, 1]
-            }}
-            className="absolute top-[85%] left-1/2 -translate-x-1/2 w-16 h-16 -mt-8"
-          >
-            {/* Soft glow behind particles */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-purple-400/30 rounded-full blur-md" />
-            
-            {/* Particles */}
-            {particles.map((p, j) => (
-              <div
-                key={j}
-                className="absolute top-1/2 left-1/2 rounded-full bg-purple-400"
-                style={{
-                  width: p.size,
-                  height: p.size,
-                  transform: `translate(calc(-50% + ${p.x}px), calc(-50% + ${p.y}px))`,
-                  opacity: p.opacity,
-                  boxShadow: '0 0 4px rgba(168, 85, 247, 0.4)'
-                }}
-              />
-            ))}
-          </motion.div>
         </div>
       ))}
     </div>
@@ -96,7 +49,7 @@ export default function Home() {
           <motion.div
             initial={{ width: "0%" }}
             animate={{ width: "100%" }}
-            transition={{ duration: 1.5, delay: 1.0, ease: "easeInOut" }}
+            transition={{ duration: 1.8, delay: 1.1, ease: "easeInOut" }}
             className="absolute left-0 top-0 bottom-0 bg-zinc-200/60 rounded-md -z-10"
           />
         </h1>
@@ -105,18 +58,18 @@ export default function Home() {
           initial={{ left: "0%", top: "60%", opacity: 0 }}
           animate={{ 
             left: ["0%", "0%", "100%", "100%"], 
-            top: ["60%", "60%", "60%", "80%"],
-            opacity: [0, 1, 1, 0] 
+            top: ["60%", "60%", "60%", "75%"],
+            opacity: [0, 1, 1, 1] 
           }}
           transition={{ 
-            duration: 2.5, 
+            duration: 3, 
             delay: 0.5, 
             ease: "easeInOut",
             times: [0, 0.2, 0.8, 1]
           }}
           className="absolute text-yellow-400 transform -ml-2 z-20 pointer-events-none"
         >
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="#FACC15" xmlns="http://www.w3.org/2000/svg" style={{ filter: 'drop-shadow(0px 2px 4px rgba(0,0,0,0.2))' }}>
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="#FACC15" xmlns="http://www.w3.org/2000/svg" style={{ filter: 'drop-shadow(0px 2px 4px rgba(0,0,0,0.2))' }}>
             <path d="M4 4L11.07 20.97L13.58 13.58L20.97 11.07L4 4Z" stroke="white" strokeWidth="1.5" strokeLinejoin="round"/>
           </svg>
         </motion.div>
@@ -162,7 +115,7 @@ export default function Home() {
 
       <div className="mt-12">
         <a href="#" className="block group">
-          <div className="flex gap-6 p-4 bg-zinc-100/50 border border-zinc-200 rounded-2xl hover:bg-zinc-100 transition-colors relative overflow-hidden">
+          <div className="flex gap-6 p-4 bg-zinc-100/50 border border-zinc-200 rounded-2xl hover:bg-zinc-100 transition-colors relative">
             <Droplets />
             <div className="w-48 h-32 rounded-xl overflow-hidden shrink-0 bg-zinc-200 z-10">
               <img src="https://picsum.photos/seed/flight/400/300" alt="Flight" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
