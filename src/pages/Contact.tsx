@@ -19,9 +19,14 @@ export default function Contact() {
             </div>
             <span className="text-sm font-medium text-zinc-700">Connect with me on X</span>
           </div>
-          <button className="px-4 py-1.5 bg-black text-white text-sm font-medium rounded-full hover:bg-zinc-800 transition-colors ml-4">
+          <a 
+            href="https://x.com/SentionalNLMB" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="px-4 py-1.5 bg-black text-white text-sm font-medium rounded-full hover:bg-zinc-800 transition-colors ml-4"
+          >
             Follow
-          </button>
+          </a>
         </div>
       </div>
     </div>
