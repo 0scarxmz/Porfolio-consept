@@ -49,7 +49,7 @@ export default function Home() {
           <motion.div
             initial={{ width: "0%", height: "0%" }}
             animate={{ width: "100%", height: "100%" }}
-            transition={{ duration: 1.8, delay: 1.1, ease: "easeInOut" }}
+            transition={{ duration: 1.2, delay: 0.8, ease: "easeInOut" }}
             className="absolute left-0 top-0 bg-zinc-200/60 border border-zinc-300/80 rounded-sm -z-10"
           />
           {/* Yellow cursor decoration */}
@@ -57,9 +57,9 @@ export default function Home() {
             initial={{ left: "0%", top: "0%", opacity: 0 }}
             animate={{ left: "100%", top: "100%", opacity: 1 }}
             transition={{ 
-              left: { duration: 1.8, delay: 1.1, ease: "easeInOut" },
-              top: { duration: 1.8, delay: 1.1, ease: "easeInOut" },
-              opacity: { duration: 0.4, delay: 0.7 }
+              left: { duration: 1.2, delay: 0.8, ease: "easeInOut" },
+              top: { duration: 1.2, delay: 0.8, ease: "easeInOut" },
+              opacity: { duration: 0.3, delay: 0.5 }
             }}
             className="absolute text-yellow-400 z-20 pointer-events-none"
             style={{ marginLeft: '-6px', marginTop: '-6px' }}

@@ -1,6 +1,6 @@
 import { Star } from 'lucide-react';
-import { useState, useEffect } from 'react';
-import { motion, useMotionValue, useSpring, AnimatePresence } from 'motion/react';
+import React, { useState, useEffect } from 'react';
+import { motion, useMotionValue, AnimatePresence } from 'motion/react';
 import { createPortal } from 'react-dom';
 
 const COLORS = [
@@ -12,12 +12,14 @@ const COLORS = [
   '#EAB308', // yellow
 ];
 
-function ProjectCard({ project, isStarred, onToggleStar, onHoverStart, onHoverEnd }: { project: any, isStarred: boolean, onToggleStar: (title: string) => void, onHoverStart: (title: string, color: string) => void, onHoverEnd: () => void }) {
+const ProjectCard: React.FC<{ project: any, isStarred: boolean, onToggleStar: (title: string) => void, onHoverStart: (title: string, color: string) => void, onHoverEnd: () => void }> = ({ project, isStarred, onToggleStar, onHoverStart, onHoverEnd }) => {
   const [nameColor, setNameColor] = useState('#18181B'); // zinc-900
 
   const handleMouseEnter = () => {
     const randomColor = COLORS[Math.floor(Math.random() * COLORS.length)];
-    setNameColor(randomColor);
+    if (project.stats !== 'Main Project') {
+      setNameColor(randomColor);
+    }
     onHoverStart(project.title, randomColor);
   };
 
@@ -27,12 +29,13 @@ function ProjectCard({ project, isStarred, onToggleStar, onHoverStart, onHoverEn
   };
 
   return (
-    <>
-      <div 
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-        className="bg-[#f1f1f1] rounded-[20px] p-2.5 flex flex-col transition-transform duration-300 hover:scale-[1.02] cursor-none relative"
-      >
+    <motion.div 
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      whileHover={{ scale: 1.02, y: -4 }}
+      transition={{ type: "spring", stiffness: 400, damping: 25 }}
+      className="bg-[#f1f1f1] rounded-[20px] p-2.5 flex flex-col relative"
+    >
         <div className="bg-white rounded-[14px] overflow-hidden mb-3 shadow-sm">
           <img 
             src={project.image} 
@@ -98,8 +101,7 @@ function ProjectCard({ project, isStarred, onToggleStar, onHoverStart, onHoverEn
             ))}
           </div>
         </div>
-      </div>
-    </>
+      </motion.div>
   );
 }
 
@@ -110,9 +112,6 @@ export default function Projects() {
 
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
-  const springConfig = { damping: 25, stiffness: 400, mass: 0.5 };
-  const cursorXSpring = useSpring(cursorX, springConfig);
-  const cursorYSpring = useSpring(cursorY, springConfig);
 
   useEffect(() => {
     const moveCursor = (e: MouseEvent) => {
@@ -148,7 +147,7 @@ export default function Projects() {
     {
       title: 'RISE',
       description: 'RISE is an AI-powered creator workspace for planning, editing, repurposing, and publishing short-form content across platforms.',
-      image: savedImage || '/rise-dashboard.png',
+      image: savedImage || 'https://picsum.photos/seed/rise/800/450',
       stats: 'Main Project',
       links: [
         { name: 'Visit', url: 'https://rise-1nk6.vercel.app' }
@@ -191,23 +190,21 @@ export default function Projects() {
         <AnimatePresence>
           {hoveredProject && (
             <motion.div 
-              initial={{ opacity: 0, scale: 0.8 }}
+              initial={{ opacity: 0, scale: 0.4 }}
               animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.8 }}
-              transition={{ duration: 0.15 }}
+              exit={{ opacity: 0, scale: 0.4 }}
+              transition={{ type: "spring", stiffness: 500, damping: 30 }}
               className="fixed pointer-events-none z-[9999] flex items-start"
               style={{ 
-                x: cursorXSpring, 
-                y: cursorYSpring,
+                x: cursorX, 
+                y: cursorY,
                 left: 0,
-                top: 0
+                top: 0,
+                transformOrigin: "0px 0px"
               }}
             >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="drop-shadow-md">
-                <path d="M0 0L7.5 20.5L11.5 13.5L19.5 11.5L0 0Z" fill={hoveredProject.color} />
-              </svg>
               <div 
-                className="px-3 py-1.5 rounded-full text-white text-sm font-medium shadow-md whitespace-nowrap ml-1 mt-6"
+                className="px-3 py-1.5 rounded-full text-zinc-900 text-sm font-semibold shadow-md whitespace-nowrap ml-4 mt-5"
                 style={{ backgroundColor: hoveredProject.color }}
               >
                 {hoveredProject.title}

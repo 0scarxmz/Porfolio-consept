@@ -1,14 +1,14 @@
 export default function About() {
   return (
     <div className="max-w-2xl animate-in fade-in slide-in-from-bottom-4 duration-500">
-      <h1 className="text-5xl font-bold tracking-tight text-zinc-900 mb-4">Aman</h1>
+      <h1 className="text-5xl font-bold tracking-tight text-zinc-900 mb-4">Oscar</h1>
       
       <div className="text-xs font-semibold text-zinc-500 tracking-wider uppercase mb-6 flex flex-wrap gap-2">
-        <span>FULL-STACK DEV</span> • <span>AI ENGINEER</span> • <span>LLMS</span> • <span>TRAVEL</span> • <span>MUSIC</span> • <span>F1</span> • <span>READING</span>
+        <span>FULL-STACK DEV</span> • <span>FRONTEND</span> • <span>MUSIC</span> • <span>BASEBALL</span> • <span>FORTNITE</span> • <span>READING</span>
       </div>
 
       <div className="flex flex-wrap gap-2 mb-12">
-        {['React', 'LLM', 'Rails', 'Next.js', 'TypeScript', 'Postgres', 'Redis'].map(tag => (
+        {['React', 'Next.js', 'TypeScript', 'Node.js', 'Tailwind CSS', 'JavaScript'].map(tag => (
           <span key={tag} className="px-3 py-1 bg-white border border-zinc-200 text-zinc-600 text-xs font-medium rounded-full shadow-sm">
             {tag}
           </span>
@@ -19,36 +19,36 @@ export default function About() {
         <section>
           <h2 className="text-xl font-bold text-zinc-900 mb-3">Who I Am</h2>
           <p>
-            Hello! I'm Aman, a Bengaluru-based engineer passionate about building tools that simplify people's lives.<br />
-            I've been coding since 2018, writing about AI, LLMs, frontend, backend, Rails and databases.
+            Hello! I'm Oscar, a passionate full-stack developer dedicated to building intuitive and scalable web applications.<br />
+            I love turning complex problems into elegant, user-friendly solutions through clean code and thoughtful design.
           </p>
         </section>
 
         <section>
           <h2 className="text-xl font-bold text-zinc-900 mb-3">What I Do</h2>
           <p>
-            Currently a Founding Engineer at <a href="#" className="underline underline-offset-4 hover:text-black">Kay.ai</a>, building workflow automation for insurance brokers. I focus on building practical, user-facing products - less demo energy, more things people actually use daily.
+            I specialize in front-end and full-stack development, creating seamless user experiences. Lately, I've been heavily into "vibe coding"—just getting in the zone and building things intuitively. I've been enjoying it a lot and am absolutely loving the process! I focus on building practical, high-quality products that people actually enjoy using every day.
           </p>
         </section>
 
         <section>
           <h2 className="text-xl font-bold text-zinc-900 mb-3">My Journey</h2>
           <p>
-            Co-founder of Dreamboat.ai, Engagebud and Influencerbit — led product development and design across multiple startups. Recently shipped Promptsmint (100+ daily users), an iOS app, and several micro-builds, keeping the shipping momentum going.
+            My path into tech started with a deep curiosity for how things work on the web. Over the years, I've honed my skills through hands-on projects, continuous learning, and a drive to build products that make an impact.
           </p>
         </section>
 
         <section>
           <h2 className="text-xl font-bold text-zinc-900 mb-3">Vision</h2>
           <p>
-            LLMs and AI will automate the mundane and reshape how we work. I strive to stay at the forefront of this transformation.
+            I aim to keep growing as a developer, contributing to meaningful projects, and building software that makes a difference. I'm always looking for the next challenge to push my boundaries and learn new technologies.
           </p>
         </section>
 
         <section>
           <h2 className="text-xl font-bold text-zinc-900 mb-3">Beyond Code</h2>
           <p>
-            Love techno & house music, follow F1 (Max), play chess, and read regularly. Travelled recently to Bali, and a month in Thailand/Vietnam in 2025.
+            When I'm not coding, I'm usually playing Fortnite. I'm also a passionate baseball fan, and I absolutely love listening to music for just about anything I do.
           </p>
         </section>
       </div>

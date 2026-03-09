@@ -1,8 +1,10 @@
-import { useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 
-function ToolCard({ tool }: { tool: any }) {
+const ToolCard: React.FC<{ tool: any }> = ({ tool }) => {
   const ref = useRef<HTMLDivElement>(null);
-  const [style, setStyle] = useState<React.CSSProperties>({});
+  const [style, setStyle] = useState<React.CSSProperties>({
+    boxShadow: '0 10px 40px rgba(0,0,0,0.12)'
+  });
   const [glareStyle, setGlareStyle] = useState<React.CSSProperties>({ opacity: 0 });
   const [contentStyle, setContentStyle] = useState<React.CSSProperties>({});
 
@@ -32,7 +34,7 @@ function ToolCard({ tool }: { tool: any }) {
     
     setStyle({
       transform: `perspective(1000px) translate3d(${translateX}px, ${translateY}px, 20px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`,
-      boxShadow: `${shadowX}px ${shadowY + 20}px 40px rgba(0,0,0,0.15)`,
+      boxShadow: `${shadowX}px ${shadowY + 20}px 50px rgba(0,0,0,0.3)`,
       transition: 'transform 0.1s ease-out, box-shadow 0.1s ease-out',
       zIndex: 50,
     });
@@ -54,7 +56,7 @@ function ToolCard({ tool }: { tool: any }) {
   const handleMouseLeave = () => {
     setStyle({
       transform: `perspective(1000px) translate3d(0px, 0px, 0px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`,
-      boxShadow: `0 8px 30px rgba(0,0,0,0.06)`,
+      boxShadow: `0 10px 40px rgba(0,0,0,0.12)`,
       transition: 'transform 0.5s ease-out, box-shadow 0.5s ease-out',
       zIndex: 1,
     });
@@ -100,7 +102,7 @@ export default function Tools() {
       name: 'Cursor',
       category: 'IDE',
       icon: (
-        <div className="w-11 h-11 rounded-xl overflow-hidden flex items-center justify-center bg-white border border-zinc-200/60 shadow-sm p-1.5">
+        <div className="w-11 h-11 rounded-xl overflow-hidden flex items-center justify-center bg-white border border-zinc-200/60 shadow-md shadow-zinc-300/60 p-1.5">
           <img src="https://www.google.com/s2/favicons?domain=cursor.com&sz=256" alt="Cursor" className="w-full h-full object-contain" referrerPolicy="no-referrer" />
         </div>
       )
@@ -109,7 +111,7 @@ export default function Tools() {
       name: 'ChatGPT',
       category: 'Productivity',
       icon: (
-        <div className="w-11 h-11 rounded-xl overflow-hidden flex items-center justify-center bg-white border border-zinc-200/60 shadow-sm p-1.5">
+        <div className="w-11 h-11 rounded-xl overflow-hidden flex items-center justify-center bg-white border border-zinc-200/60 shadow-md shadow-zinc-300/60 p-1.5">
           <img src="https://www.google.com/s2/favicons?domain=chatgpt.com&sz=256" alt="ChatGPT" className="w-full h-full object-contain" referrerPolicy="no-referrer" />
         </div>
       )
@@ -118,7 +120,7 @@ export default function Tools() {
       name: 'Notion',
       category: 'Productivity',
       icon: (
-        <div className="w-11 h-11 rounded-xl overflow-hidden flex items-center justify-center bg-white border border-zinc-200/60 shadow-sm p-1.5">
+        <div className="w-11 h-11 rounded-xl overflow-hidden flex items-center justify-center bg-white border border-zinc-200/60 shadow-md shadow-zinc-300/60 p-1.5">
           <img src="https://www.google.com/s2/favicons?domain=notion.so&sz=256" alt="Notion" className="w-full h-full object-contain" referrerPolicy="no-referrer" />
         </div>
       )
@@ -127,7 +129,7 @@ export default function Tools() {
       name: 'Linear',
       category: 'Project Management',
       icon: (
-        <div className="w-11 h-11 rounded-xl overflow-hidden flex items-center justify-center bg-white border border-zinc-200/60 shadow-sm p-1.5">
+        <div className="w-11 h-11 rounded-xl overflow-hidden flex items-center justify-center bg-white border border-zinc-200/60 shadow-md shadow-zinc-300/60 p-1.5">
           <img src="https://www.google.com/s2/favicons?domain=linear.app&sz=256" alt="Linear" className="w-full h-full object-contain" referrerPolicy="no-referrer" />
         </div>
       )
@@ -136,7 +138,7 @@ export default function Tools() {
       name: 'Antigravity',
       category: 'IDE',
       icon: (
-        <div className="w-11 h-11 rounded-xl overflow-hidden flex items-center justify-center bg-white border border-zinc-200/60 shadow-sm p-1.5">
+        <div className="w-11 h-11 rounded-xl overflow-hidden flex items-center justify-center bg-white border border-zinc-200/60 shadow-md shadow-zinc-300/60 p-1.5">
           <img src="https://www.google.com/s2/favicons?domain=antigravity.google&sz=256" alt="Antigravity" className="w-full h-full object-contain" referrerPolicy="no-referrer" />
         </div>
       )
@@ -145,7 +147,7 @@ export default function Tools() {
       name: 'Codex',
       category: 'App',
       icon: (
-        <div className="w-11 h-11 rounded-xl overflow-hidden flex items-center justify-center bg-white border border-zinc-200/60 shadow-sm">
+        <div className="w-11 h-11 rounded-xl overflow-hidden flex items-center justify-center bg-white border border-zinc-200/60 shadow-md shadow-zinc-300/60">
           <img src="https://9to5mac.com/wp-content/uploads/sites/6/2026/02/codex-app-icon-openai.jpg" alt="Codex" className="w-full h-full object-cover scale-[1.6]" referrerPolicy="no-referrer" />
         </div>
       )
