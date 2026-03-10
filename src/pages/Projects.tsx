@@ -169,11 +169,11 @@ export default function Projects() {
   return (
     <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
       <div className="mb-8">
-        <h1 className="text-[52px] font-normal tracking-tight text-zinc-900 mb-2">Projects</h1>
+        <h1 className="text-4xl md:text-[52px] font-normal tracking-tight text-zinc-900 mb-2">Projects</h1>
         <p className="text-[14px] font-normal text-zinc-600">Playground - Small MVP to Production Apps</p>
       </div>
 
-      <div className="grid grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {sortedProjects.map((project, index) => (
           <ProjectCard 
             key={project.title} 

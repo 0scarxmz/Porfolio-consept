@@ -2,36 +2,46 @@ import React from 'react';
 
 const IsometricGrid = () => {
   const gridSize = 60;
-  const cellSize = 48;
+  const cellSize = 56;
+
+  const colors = ['#86efac', '#93c5fd', '#fca5a5', '#fde047', '#d8b4fe', '#fdba74', '#f9a8d4', '#5eead4'];
 
   return (
-    <div className="absolute inset-0 overflow-hidden flex items-center justify-center">
+    <div className="absolute inset-0 overflow-hidden flex items-center justify-center pointer-events-none">
       <div 
         className="relative flex flex-wrap pointer-events-auto shrink-0"
         style={{
           width: gridSize * cellSize,
           height: gridSize * cellSize,
-          transform: 'rotateX(60deg) rotateZ(-45deg) translateZ(0)',
+          transform: 'rotateX(60deg) rotateZ(-45deg)',
           transformOrigin: 'center center',
-          transformStyle: 'preserve-3d',
         }}
       >
-        {Array.from({ length: gridSize * gridSize }).map((_, i) => (
-          <div
-            key={i}
-            className="group relative border-t border-l border-zinc-200 hover:bg-[#86efac] hover:duration-0 transition-colors duration-700 cursor-pointer"
-            style={{
-              width: cellSize,
-              height: cellSize,
-            }}
-          >
-            {/* Cross at top-left */}
-            <div className="absolute -top-[4px] -left-[4px] w-[8px] h-[8px] pointer-events-none opacity-100">
-              <div className="absolute top-1/2 left-0 w-full h-[1px] bg-zinc-900 -translate-y-1/2" />
-              <div className="absolute top-0 left-1/2 w-[1px] h-full bg-zinc-900 -translate-x-1/2" />
-            </div>
-          </div>
-        ))}
+        {Array.from({ length: gridSize * gridSize }).map((_, i) => {
+          const color = colors[Math.floor(Math.random() * colors.length)];
+          return (
+            <div
+              key={i}
+              className="relative border-t border-l border-zinc-200 transition-colors cursor-pointer"
+              style={{
+                width: cellSize,
+                height: cellSize,
+                backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' shape-rendering='crispEdges'%3E%3Cpath d='M0 4H8M4 0V8' stroke='%2318181b' stroke-width='1'/%3E%3C/svg%3E")`,
+                backgroundPosition: '-4px -4px',
+                backgroundRepeat: 'no-repeat',
+                transitionDuration: '700ms',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = color;
+                e.currentTarget.style.transitionDuration = '0ms';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = 'transparent';
+                e.currentTarget.style.transitionDuration = '700ms';
+              }}
+            />
+          );
+        })}
       </div>
     </div>
   );
@@ -48,9 +58,9 @@ export default function Contact() {
             <IsometricGrid />
           </div>
           
-          <div className="relative z-10 flex flex-col items-start pointer-events-none">
-            <h1 className="text-[53px] font-medium tracking-tight text-zinc-900 mb-4">Contact</h1>
-            <p className="text-[16.5px] text-zinc-800 mb-8 whitespace-nowrap">
+          <div className="relative z-10 flex flex-col items-start pointer-events-none w-full">
+            <h1 className="text-4xl md:text-[53px] font-medium tracking-tight text-zinc-900 mb-4">Contact</h1>
+            <p className="text-base md:text-[16.5px] text-zinc-800 mb-8 max-w-md md:max-w-none">
               If you're building in / excited about AI or just wanna chat, say hi on X!
             </p>
             
@@ -63,7 +73,7 @@ export default function Contact() {
                 href="https://x.com/SentionalNLMB" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="px-3 py-1 bg-black text-white text-[12px] font-medium rounded-full hover:bg-zinc-800 transition-colors"
+                className="px-3 py-1 bg-black text-white text-[12px] font-medium rounded-full hover:bg-zinc-800 transition-all hover:scale-105 active:scale-95"
               >
                 Follow
               </a>

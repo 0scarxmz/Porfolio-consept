@@ -1,7 +1,7 @@
 export default function About() {
   return (
-    <div className="max-w-3xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-500 pt-24">
-      <h1 className="text-5xl font-extrabold tracking-tight text-zinc-900 mb-4">Oscar</h1>
+    <div className="max-w-3xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-500 pt-8 md:pt-24">
+      <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-zinc-900 mb-4">Oscar</h1>
       
       <div className="text-sm font-bold text-zinc-500 tracking-wider uppercase mb-6 flex flex-wrap gap-2">
         <span>FULL-STACK DEV</span> • <span>FRONTEND</span> • <span>MUSIC</span> • <span>BASEBALL</span> • <span>FORTNITE</span> • <span>READING</span>

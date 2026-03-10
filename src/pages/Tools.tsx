@@ -157,7 +157,7 @@ export default function Tools() {
   return (
     <div className="flex flex-col items-center justify-center min-h-[60vh] animate-in fade-in slide-in-from-bottom-4 duration-500">
       <div className="text-center mb-12">
-        <h1 className="text-5xl font-bold tracking-tight text-zinc-900 mb-4">Shovels</h1>
+        <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-zinc-900 mb-4">Shovels</h1>
         <p className="text-zinc-600">Tools I frequently use to make life easier</p>
       </div>
 
