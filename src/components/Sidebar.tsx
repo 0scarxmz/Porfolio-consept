@@ -36,7 +36,6 @@ export default function Sidebar() {
     { name: 'Home', path: '/', icon: Home },
     { name: 'Experience', path: '/experience', icon: Building2 },
     { name: 'Projects', path: '/projects', icon: Navigation },
-    { name: 'Blogs', path: '/blogs', icon: PenLine },
     { name: 'About', path: '/about', icon: CircleUser },
     { name: 'Contact', path: '/contact', icon: Mail },
     { name: 'Tools', path: '/tools', icon: Wrench },
@@ -45,31 +44,30 @@ export default function Sidebar() {
   const connectItems = [
     { name: 'X (Twitter)', url: 'https://x.com/SentionalNLMB', icon: TwitterIcon },
     { name: 'LinkedIn', url: '#', icon: LinkedinIcon },
-    { name: 'Medium', url: '#', icon: MediumIcon },
     { name: 'Github', url: '#', icon: GithubIcon },
     { name: 'Instagram', url: '#', icon: Instagram },
   ];
 
   return (
-    <aside className="w-64 h-screen bg-[#f4f4f5] border-r border-zinc-200 flex flex-col fixed left-0 top-0 overflow-y-auto z-50">
-      <div className="p-6 flex items-center gap-3">
-        <div className="w-10 h-10 rounded-full bg-zinc-300 overflow-hidden shrink-0">
+    <aside className="w-72 h-screen bg-[#f4f4f5] border-r border-zinc-200 flex flex-col fixed left-0 top-0 overflow-y-auto z-50">
+      <div className="pl-6 pr-6 py-8 flex items-center gap-4 mb-4">
+        <div className="w-12 h-12 rounded-full bg-zinc-300 overflow-hidden shrink-0">
           <img src="https://picsum.photos/seed/aman/100/100" alt="Profile" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
         </div>
         <div>
-          <h2 className="font-medium text-zinc-900">Oscar</h2>
-          <p className="text-sm text-zinc-500">Dev</p>
+          <h2 className="text-lg font-normal text-zinc-900 leading-none">Oscar</h2>
+          <p className="text-sm text-zinc-500 mt-1.5">Dev</p>
         </div>
       </div>
 
-      <nav className="px-4 py-2 space-y-1">
+      <nav className="pl-6 pr-4 py-2 mt-4 space-y-3">
         {navItems.map((item) => (
           <NavLink
             key={item.name}
             to={item.path}
             className={({ isActive }) =>
               cn(
-                'flex items-center gap-3 px-3 py-2.5 rounded-lg text-[15px] font-medium transition-colors',
+                'flex items-center gap-4 px-4 py-3 rounded-lg text-base font-normal transition-colors',
                 isActive
                   ? 'bg-zinc-900 text-white'
                   : 'text-zinc-900 hover:bg-zinc-200'
@@ -82,21 +80,21 @@ export default function Sidebar() {
         ))}
       </nav>
 
-      <div className="px-4 mt-8">
-        <h3 className="px-2 text-[16px] font-medium text-zinc-900 mb-3">
+      <div className="pl-2 pr-4 mt-16">
+        <h3 className="px-4 text-base text-zinc-900 mb-6 font-normal">
           Connect
         </h3>
-        <div className="space-y-1">
+        <div className="space-y-3">
           {connectItems.map((item) => (
             <a
               key={item.name}
               href={item.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-between px-2 py-2 rounded-lg text-[15px] font-medium text-zinc-900 hover:bg-zinc-200 transition-colors"
+              className="flex items-center justify-between px-4 py-3 rounded-lg text-base font-normal text-zinc-900 hover:bg-zinc-200 transition-colors"
             >
-              <div className="flex items-center gap-3">
-                <item.icon className="w-[18px] h-[18px]" />
+              <div className="flex items-center gap-4">
+                <item.icon className="w-5 h-5" />
                 {item.name}
               </div>
               <ExternalLink className="w-4 h-4 text-zinc-500" />

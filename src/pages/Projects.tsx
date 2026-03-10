@@ -47,7 +47,7 @@ const ProjectCard: React.FC<{ project: any, isStarred: boolean, onToggleStar: (t
         <div className="px-1.5 flex flex-col flex-1">
           <div className="flex justify-between items-start mb-0.5">
             <h3 
-              className="text-[17px] font-semibold transition-colors duration-300"
+              className="text-xl md:text-3xl font-normal transition-colors duration-300"
               style={{ color: nameColor }}
             >
               {project.title}
@@ -60,25 +60,25 @@ const ProjectCard: React.FC<{ project: any, isStarred: boolean, onToggleStar: (t
               className={`transition-colors mt-0.5 ${isStarred ? 'text-zinc-900' : 'text-zinc-400 hover:text-zinc-600'}`}
               style={{ cursor: 'pointer' }}
             >
-              <Star className={`w-[18px] h-[18px] ${isStarred ? 'fill-current' : ''}`} />
+              <Star className={`w-5 h-5 md:w-6 md:h-6 ${isStarred ? 'fill-current' : ''}`} />
             </button>
           </div>
           {project.stats && (
-            <p className="text-[13px] text-zinc-500 mb-2">{project.stats}</p>
+            <p className="text-sm md:text-lg text-zinc-500 mb-2 md:mb-4">{project.stats}</p>
           )}
-          <p className="text-[13px] text-zinc-700 mb-4 flex-1 leading-relaxed whitespace-pre-line">
+          <p className="text-base md:text-xl text-zinc-700 mb-4 md:mb-6 flex-1 leading-relaxed whitespace-pre-line">
             {project.description}
           </p>
           
-          <div className="flex items-center justify-between mt-auto mb-4">
-            <div className="flex gap-1.5">
+          <div className="flex items-center justify-between mt-auto mb-4 md:mb-6">
+            <div className="flex gap-2 md:gap-3">
               {project.links.map((link: any) => (
                 <a 
                   key={link.name} 
                   href={link.url} 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="px-3 py-1 bg-zinc-900 text-white text-[12px] font-medium rounded-md hover:bg-zinc-800 transition-colors"
+                  className="px-4 py-2 bg-zinc-900 text-white text-sm md:text-lg font-normal rounded-md hover:bg-zinc-800 transition-colors"
                   style={{ cursor: 'pointer' }}
                   onClick={(e) => e.stopPropagation()}
                 >
@@ -87,15 +87,15 @@ const ProjectCard: React.FC<{ project: any, isStarred: boolean, onToggleStar: (t
               ))}
             </div>
             {project.status === 'active' && (
-              <span className="px-2.5 py-0.5 bg-[#c6f6d5] text-green-800 text-[11px] font-medium rounded-full">
+              <span className="px-3 py-1 bg-[#c6f6d5] text-green-800 text-xs md:text-base font-normal rounded-full">
                 active
               </span>
             )}
           </div>
           
-          <div className="flex flex-wrap gap-1.5">
+          <div className="flex flex-wrap gap-2">
             {project.tags.map((tag: string) => (
-              <span key={tag} className="px-2.5 py-1 bg-white text-zinc-600 text-[11px] font-medium rounded-full border border-zinc-200/80 shadow-sm">
+              <span key={tag} className="px-3 py-1.5 bg-white text-zinc-600 text-xs md:text-base font-normal rounded-full border border-zinc-200/80 shadow-sm">
                 {tag}
               </span>
             ))}
@@ -167,13 +167,13 @@ export default function Projects() {
   });
 
   return (
-    <div className="animate-in fade-in slide-in-from-bottom-4 duration-500 max-w-5xl">
-      <div className="mb-8">
-        <h1 className="text-[40px] font-bold tracking-tight text-zinc-900 mb-1">Projects</h1>
-        <p className="text-[15px] text-zinc-600">Playground - Small MVP to Production Apps</p>
+    <div className="animate-in fade-in slide-in-from-bottom-4 duration-500 max-w-full md:max-w-5xl lg:max-w-6xl w-full pt-8 sm:pt-12 md:pt-16">
+      <div className="mb-8 md:mb-12">
+        <h1 className="text-4xl sm:text-5xl md:text-7xl font-normal tracking-tight text-zinc-900 mb-2 md:mb-4">Projects</h1>
+        <p className="text-base sm:text-lg md:text-2xl text-zinc-600">Playground - Small MVP to Production Apps</p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
         {sortedProjects.map((project, index) => (
           <ProjectCard 
             key={project.title} 
@@ -204,7 +204,7 @@ export default function Projects() {
               }}
             >
               <div 
-                className="px-3 py-1.5 rounded-full text-zinc-900 text-sm font-semibold shadow-md whitespace-nowrap ml-4 mt-5"
+                className="px-4 py-2 rounded-full text-zinc-900 text-base md:text-xl font-normal shadow-md whitespace-nowrap ml-4 mt-5"
                 style={{ backgroundColor: hoveredProject.color }}
               >
                 {hoveredProject.title}
