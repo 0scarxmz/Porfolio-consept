@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Home, Building2, Navigation, PenLine, CircleUser, Mail, Wrench, Instagram, ExternalLink } from 'lucide-react';
 import { clsx, type ClassValue } from 'clsx';
@@ -31,7 +32,34 @@ const GithubIcon = (props: any) => (
   </svg>
 );
 
+const ROLES = ["Dev", "Vibe Coder", "UI Engineer", "Product Builder", "Design Engineer"];
+
 export default function Sidebar() {
+  const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
+  const [currentText, setCurrentText] = useState("Dev");
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    const typeSpeed = isDeleting ? 50 : 100;
+    const delay = isDeleting ? typeSpeed : (currentText === ROLES[currentRoleIndex] ? 2000 : typeSpeed);
+
+    const timeout = setTimeout(() => {
+      if (!isDeleting && currentText === ROLES[currentRoleIndex]) {
+        setIsDeleting(true);
+      } else if (isDeleting && currentText === "") {
+        setIsDeleting(false);
+        setCurrentRoleIndex((prev) => (prev + 1) % ROLES.length);
+      } else {
+        const nextText = isDeleting 
+          ? currentText.slice(0, -1) 
+          : ROLES[currentRoleIndex].slice(0, currentText.length + 1);
+        setCurrentText(nextText);
+      }
+    }, delay);
+
+    return () => clearTimeout(timeout);
+  }, [currentText, isDeleting, currentRoleIndex]);
+
   const navItems = [
     { name: 'Home', path: '/', icon: Home },
     { name: 'Experience', path: '/experience', icon: Building2 },
@@ -49,55 +77,55 @@ export default function Sidebar() {
   ];
 
   return (
-    <aside className="w-72 h-screen bg-[#f4f4f5] border-r border-zinc-200 flex flex-col fixed left-0 top-0 overflow-y-auto z-50">
-      <div className="pl-6 pr-6 py-8 flex items-center gap-4 mb-4">
-        <div className="w-12 h-12 rounded-full bg-zinc-300 overflow-hidden shrink-0">
+    <aside className="w-64 h-screen bg-[#f4f4f5] border-r border-zinc-200 flex flex-col fixed left-0 top-0 overflow-y-auto z-50">
+      <div className="pl-6 pr-6 py-6 flex items-center gap-4 mb-2">
+        <div className="w-[42px] h-[42px] rounded-full bg-zinc-300 overflow-hidden shrink-0">
           <img src="https://picsum.photos/seed/aman/100/100" alt="Profile" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
         </div>
         <div>
-          <h2 className="text-lg font-normal text-zinc-900 leading-none">Oscar</h2>
-          <p className="text-sm text-zinc-500 mt-1.5">Dev</p>
+          <h2 className="text-[15.5px] font-medium text-zinc-900 leading-none">Oscar</h2>
+          <p className="text-[13.5px] text-black mt-1 h-[20px]">{currentText}<span className="animate-pulse">|</span></p>
         </div>
       </div>
 
-      <nav className="pl-6 pr-4 py-2 mt-4 space-y-3">
+      <nav className="pl-6 pr-4 py-2 mt-4 space-y-2">
         {navItems.map((item) => (
           <NavLink
             key={item.name}
             to={item.path}
             className={({ isActive }) =>
               cn(
-                'flex items-center gap-4 px-4 py-3 rounded-lg text-base font-normal transition-colors',
+                'flex items-center gap-3 px-3 py-2.5 rounded-lg text-[14px] font-medium transition-colors',
                 isActive
                   ? 'bg-zinc-900 text-white'
                   : 'text-zinc-900 hover:bg-zinc-200'
               )
             }
           >
-            <item.icon className="w-5 h-5" />
+            <item.icon className="w-[14px] h-[14px]" />
             {item.name}
           </NavLink>
         ))}
       </nav>
 
-      <div className="pl-2 pr-4 mt-16">
-        <h3 className="px-4 text-base text-zinc-900 mb-6 font-normal">
+      <div className="pl-2 pr-4 mt-12">
+        <h3 className="px-3 text-[14px] text-zinc-900 mb-4">
           Connect
         </h3>
-        <div className="space-y-3">
+        <div className="space-y-2">
           {connectItems.map((item) => (
             <a
               key={item.name}
               href={item.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-between px-4 py-3 rounded-lg text-base font-normal text-zinc-900 hover:bg-zinc-200 transition-colors"
+              className="flex items-center justify-between px-3 py-2.5 rounded-lg text-[13px] text-zinc-900 hover:bg-zinc-200 transition-colors"
             >
-              <div className="flex items-center gap-4">
-                <item.icon className="w-5 h-5" />
+              <div className="flex items-center gap-3">
+                <item.icon className="w-[14px] h-[14px]" />
                 {item.name}
               </div>
-              <ExternalLink className="w-4 h-4 text-zinc-500" />
+              <ExternalLink className="w-3.5 h-3.5 text-zinc-500" />
             </a>
           ))}
         </div>

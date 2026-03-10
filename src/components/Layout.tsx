@@ -18,8 +18,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h-screen bg-[#f8f9fa] flex font-sans text-zinc-900">
       <Sidebar />
-      <main className="flex-1 ml-72 flex flex-col min-h-screen relative">
-        <div className="flex-1 p-6 sm:p-8 md:p-12 lg:p-24 max-w-7xl mx-auto w-full">
+      <main className="flex-1 ml-64 flex flex-col min-h-screen relative">
+        <div className="flex-1 p-16 max-w-[960px] w-full mx-auto shrink-0 flex flex-col justify-center">
           {children}
         </div>
         <footer className="border-t border-zinc-200 py-4 px-8 flex justify-between items-center text-sm text-zinc-500 bg-[#f8f9fa] w-full mt-auto">
