@@ -106,7 +106,6 @@ const ProjectCard: React.FC<{ project: any, isStarred: boolean, onToggleStar: (t
 }
 
 export default function Projects() {
-  const [savedImage, setSavedImage] = useState<string | null>(null);
   const [starredProjects, setStarredProjects] = useState<string[]>(['RISE']);
   const [hoveredProject, setHoveredProject] = useState<{title: string, color: string} | null>(null);
 
@@ -123,10 +122,6 @@ export default function Projects() {
   }, [cursorX, cursorY]);
 
   useEffect(() => {
-    const stored = localStorage.getItem('rise-project-image');
-    if (stored) {
-      setSavedImage(stored);
-    }
     const storedStars = localStorage.getItem('starred-projects');
     if (storedStars) {
       setStarredProjects(JSON.parse(storedStars));
@@ -147,7 +142,7 @@ export default function Projects() {
     {
       title: 'RISE',
       description: 'RISE is an AI-powered creator workspace for planning, editing, repurposing, and publishing short-form content across platforms.',
-      image: savedImage || 'https://picsum.photos/seed/rise/800/450',
+      image: '/rise.png',
       stats: 'Main Project',
       links: [
         { name: 'Visit', url: 'https://rise-1nk6.vercel.app' }

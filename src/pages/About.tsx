@@ -19,36 +19,45 @@ export default function About() {
         <section>
           <h2 className="text-xl font-bold text-zinc-900 mb-3">Who I Am</h2>
           <p>
-            Hello! I'm Oscar, a passionate full-stack developer dedicated to building intuitive and scalable web applications.<br />
-            I love turning complex problems into elegant, user-friendly solutions through clean code and thoughtful design.
+            Hello! I'm Oscar Reyes, a developer passionate about building web applications and experimenting with new technologies. I enjoy creating interactive and visually engaging applications, often using modern development tools and AI-assisted workflows to bring ideas to life.
+            <br /><br />
+            I'm especially interested in learning through hands-on projects and continuously improving my skills as I build.
           </p>
         </section>
 
         <section>
           <h2 className="text-xl font-bold text-zinc-900 mb-3">What I Do</h2>
           <p>
-            I specialize in front-end and full-stack development, creating seamless user experiences. Lately, I've been heavily into "vibe coding"—just getting in the zone and building things intuitively. I've been enjoying it a lot and am absolutely loving the process! I focus on building practical, high-quality products that people actually enjoy using every day.
+            I work on full-stack web applications, focusing on building clean, functional products and improving them through careful testing and iteration. I take a very detail-oriented approach to development and make sure the features I build work reliably before moving forward.
+            <br /><br />
+            I enjoy refining projects step by step, fixing issues early, and making sure the final result is stable and polished.
           </p>
         </section>
 
         <section>
           <h2 className="text-xl font-bold text-zinc-900 mb-3">My Journey</h2>
           <p>
-            My path into tech started with a deep curiosity for how things work on the web. Over the years, I've honed my skills through hands-on projects, continuous learning, and a drive to build products that make an impact.
+            I started programming out of curiosity about how software works. I learned mainly by building projects and experimenting with different technologies.
+            <br /><br />
+            Recently, coding with AI tools has made development even more exciting. It has accelerated how I build and experiment, and it keeps me motivated to keep learning and creating every day.
           </p>
         </section>
 
         <section>
           <h2 className="text-xl font-bold text-zinc-900 mb-3">Vision</h2>
           <p>
-            I aim to keep growing as a developer, contributing to meaningful projects, and building software that makes a difference. I'm always looking for the next challenge to push my boundaries and learn new technologies.
+            My goal is to grow as a developer while building impactful technology products. I’m especially interested in artificial intelligence, automation, and creative tools that combine software with real-world applications.
+            <br /><br />
+            In the future, I hope to contribute to innovative companies while continuing to build ambitious projects and explore new technologies.
           </p>
         </section>
 
         <section>
           <h2 className="text-xl font-bold text-zinc-900 mb-3">Beyond Code</h2>
           <p>
-            When I'm not coding, I'm usually playing Fortnite. I'm also a passionate baseball fan, and I absolutely love listening to music for just about anything I do.
+            Outside of programming, I enjoy gaming—especially Fortnite, where I’m very competitive. I also love baseball and usually listen to music while coding, which helps me stay focused.
+            <br /><br />
+            I’m active in the tech community on Twitter, where I follow new tools, products, and development strategies. I enjoy experimenting with new technologies and testing different tools whenever they are released to see how they can improve my workflow and programming experience.
           </p>
         </section>
       </div>
