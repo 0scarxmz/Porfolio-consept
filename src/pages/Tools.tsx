@@ -71,12 +71,15 @@ const ToolCard: React.FC<{ tool: any }> = ({ tool }) => {
   };
 
   return (
-    <div
-      ref={ref}
+    <a
+      href={tool.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      ref={ref as any}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       style={{ ...style, transformStyle: 'preserve-3d' }}
-      className="relative flex items-center gap-4 p-4 bg-gradient-to-b from-white/80 to-white/40 backdrop-blur-md border border-white/60 rounded-2xl cursor-pointer"
+      className="relative flex items-center gap-4 p-4 bg-gradient-to-b from-white/80 to-white/40 backdrop-blur-md border border-white/60 rounded-2xl cursor-pointer block"
     >
       {/* Glare overlay */}
       <div
@@ -92,7 +95,7 @@ const ToolCard: React.FC<{ tool: any }> = ({ tool }) => {
           <p className="text-[13px] text-zinc-500">{tool.category}</p>
         </div>
       </div>
-    </div>
+    </a>
   );
 }
 
@@ -101,6 +104,7 @@ export default function Tools() {
     {
       name: 'Cursor',
       category: 'IDE',
+      url: 'https://cursor.com',
       icon: (
         <div className="w-11 h-11 rounded-xl overflow-hidden flex items-center justify-center bg-white border border-zinc-200/60 shadow-md shadow-zinc-300/60 p-1.5">
           <img src="https://www.google.com/s2/favicons?domain=cursor.com&sz=256" alt="Cursor" className="w-full h-full object-contain" referrerPolicy="no-referrer" />
@@ -110,6 +114,7 @@ export default function Tools() {
     {
       name: 'ChatGPT',
       category: 'Productivity',
+      url: 'https://chatgpt.com',
       icon: (
         <div className="w-11 h-11 rounded-xl overflow-hidden flex items-center justify-center bg-white border border-zinc-200/60 shadow-md shadow-zinc-300/60 p-1.5">
           <img src="https://www.google.com/s2/favicons?domain=chatgpt.com&sz=256" alt="ChatGPT" className="w-full h-full object-contain" referrerPolicy="no-referrer" />
@@ -119,6 +124,7 @@ export default function Tools() {
     {
       name: 'Notion',
       category: 'Productivity',
+      url: 'https://notion.so',
       icon: (
         <div className="w-11 h-11 rounded-xl overflow-hidden flex items-center justify-center bg-white border border-zinc-200/60 shadow-md shadow-zinc-300/60 p-1.5">
           <img src="https://www.google.com/s2/favicons?domain=notion.so&sz=256" alt="Notion" className="w-full h-full object-contain" referrerPolicy="no-referrer" />
@@ -128,6 +134,7 @@ export default function Tools() {
     {
       name: 'Linear',
       category: 'Project Management',
+      url: 'https://linear.app',
       icon: (
         <div className="w-11 h-11 rounded-xl overflow-hidden flex items-center justify-center bg-white border border-zinc-200/60 shadow-md shadow-zinc-300/60 p-1.5">
           <img src="https://www.google.com/s2/favicons?domain=linear.app&sz=256" alt="Linear" className="w-full h-full object-contain" referrerPolicy="no-referrer" />
@@ -137,6 +144,7 @@ export default function Tools() {
     {
       name: 'Antigravity',
       category: 'IDE',
+      url: 'https://antigravity.google',
       icon: (
         <div className="w-11 h-11 rounded-xl overflow-hidden flex items-center justify-center bg-white border border-zinc-200/60 shadow-md shadow-zinc-300/60 p-1.5">
           <img src="https://www.google.com/s2/favicons?domain=antigravity.google&sz=256" alt="Antigravity" className="w-full h-full object-contain" referrerPolicy="no-referrer" />
@@ -146,6 +154,7 @@ export default function Tools() {
     {
       name: 'Codex',
       category: 'App',
+      url: 'https://chatgpt.com/codex/get-started',
       icon: (
         <div className="w-11 h-11 rounded-xl overflow-hidden flex items-center justify-center bg-white border border-zinc-200/60 shadow-md shadow-zinc-300/60">
           <img src="https://9to5mac.com/wp-content/uploads/sites/6/2026/02/codex-app-icon-openai.jpg" alt="Codex" className="w-full h-full object-cover scale-[1.6]" referrerPolicy="no-referrer" />

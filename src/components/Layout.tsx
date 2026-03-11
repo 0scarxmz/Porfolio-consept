@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import Sidebar from './Sidebar';
 import { Menu, X } from 'lucide-react';
 
@@ -44,7 +45,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           {children}
         </div>
         <footer className="border-t border-zinc-200 py-4 px-6 md:px-8 flex flex-col sm:flex-row gap-4 justify-between items-center text-sm text-black bg-[#f8f9fa] w-full mt-auto">
-          <a href="#" className="hover:opacity-70 transition-opacity">Reach out →</a>
+          <Link to="/contact" className="hover:opacity-70 transition-opacity">Reach out →</Link>
           <div className="text-center">Made by Oscar | © 2026</div>
           <RealTimeClock />
         </footer>

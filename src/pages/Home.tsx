@@ -1,4 +1,5 @@
 import { motion } from 'motion/react';
+import { GitHubCalendar } from 'react-github-calendar';
 
 const Droplets = () => {
   const droplets = [
@@ -115,34 +116,19 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="mt-6 md:mt-10">
-        <a href="#" className="block -mx-2 md:mx-0">
-          <div className="cursor-pointer group active:scale-[0.98]" tabIndex={0}>
-            <div className="rounded-xl text-zinc-900 bg-neutral-200 border border-zinc-300 hover:border-zinc-600 active:border-zinc-600 transition-colors overflow-hidden shadow-sm hover:shadow-md relative">
-              <Droplets />
-              <div className="flex flex-col sm:flex-row relative z-10">
-                <div className="relative w-full sm:w-40 h-32 sm:h-auto flex-shrink-0">
-                  <img src="https://picsum.photos/seed/flight/400/300" alt="Flight" className="object-cover group-hover:scale-105 transition-transform duration-300 absolute h-full w-full left-0 top-0 right-0 bottom-0" referrerPolicy="no-referrer" />
-                </div>
-                <div className="flex-1 p-3 sm:p-4 md:p-5 flex flex-col justify-between min-h-0 sm:min-h-[140px] bg-neutral-200/80 backdrop-blur-sm">
-                  <div className="space-y-1.5 sm:space-y-2">
-                    <div className="flex items-center gap-2 flex-wrap">
-                      <span className="text-[10px] sm:text-[10px] font-semibold text-zinc-600 uppercase tracking-wider">Check this out</span>
-                    </div>
-                    <h2 className="text-base sm:text-lg md:text-xl font-bold text-zinc-900 line-clamp-2 group-hover:text-black transition-colors leading-tight">The Long Flight Test</h2>
-                    <p className="text-xs sm:text-sm text-gray-600 line-clamp-2 sm:line-clamp-2 leading-snug sm:leading-relaxed">
-                      A simple question that reveals the true weight of our relationships: Would you want to sit next to this person on a long flight?
-                    </p>
-                  </div>
-                  <div className="flex items-center gap-1 text-xs sm:text-sm text-zinc-600 mt-2 sm:mt-3 group-hover:text-zinc-800 transition-colors pt-2 border-t border-zinc-300 sm:border-0 sm:pt-0">
-                    <span>Read more</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-arrow-right w-3 h-3 sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform flex-shrink-0"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-                  </div>
-                </div>
-              </div>
-            </div>
+      <div className="mt-8 md:mt-12">
+        <h2 className="text-xl font-semibold text-zinc-900 mb-4">My Contributions</h2>
+        <div className="p-4 sm:p-6 rounded-xl border border-zinc-200 bg-white shadow-sm w-full overflow-hidden">
+          <div className="w-full [&_svg]:w-full [&_svg]:h-auto">
+            <GitHubCalendar 
+              username="0scarxmz" 
+              colorScheme="light"
+              blockSize={10}
+              blockMargin={3}
+              fontSize={12}
+            />
           </div>
-        </a>
+        </div>
       </div>
     </div>
   );

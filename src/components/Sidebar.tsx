@@ -76,9 +76,9 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
 
   const connectItems = [
     { name: 'X (Twitter)', url: 'https://x.com/SentionalNLMB', icon: TwitterIcon },
-    { name: 'LinkedIn', url: '#', icon: LinkedinIcon },
-    { name: 'Github', url: '#', icon: GithubIcon },
-    { name: 'Instagram', url: '#', icon: Instagram },
+    { name: 'LinkedIn', url: 'https://www.linkedin.com/in/oscar-reyes-manzueta-713a1a289/', icon: LinkedinIcon },
+    { name: 'Github', url: 'https://github.com/0scarxmz', icon: GithubIcon },
+    { name: 'Instagram', url: 'https://www.instagram.com/sentionalnlmb/', icon: Instagram },
   ];
 
   return (
@@ -137,7 +137,7 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
                 href={item.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-between pl-3 pr-1 py-2.5 rounded-lg text-[13px] text-zinc-900 hover:bg-zinc-200 transition-colors"
+                className="flex items-center justify-between px-3 py-2.5 -ml-3 rounded-lg text-[13px] text-zinc-900 hover:bg-zinc-200 transition-colors"
               >
                 <div className="flex items-center gap-3">
                   <item.icon className="w-[14px] h-[14px]" />
