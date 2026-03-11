@@ -44,7 +44,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <div className="flex-1 p-6 md:p-16 max-w-[960px] w-full mx-auto shrink-0 flex flex-col justify-center">
           {children}
         </div>
-        <footer className="border-t border-zinc-200 py-4 px-6 md:px-8 flex flex-col sm:flex-row gap-4 justify-between items-center text-sm text-black bg-[#f8f9fa] w-full mt-auto">
+        <footer className="border-t border-zinc-200 py-4 px-6 md:px-8 flex flex-col sm:flex-row gap-4 justify-between items-center text-sm text-black bg-[#f8f9fa] w-full mt-auto sticky bottom-0 z-40">
           <Link to="/contact" className="hover:opacity-70 transition-opacity">Reach out →</Link>
           <div className="text-center">Made by Oscar | © 2026</div>
           <RealTimeClock />
