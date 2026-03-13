@@ -28,7 +28,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <header className="lg:hidden h-16 border-b border-zinc-200 bg-[#f4f4f5] flex items-center justify-between px-6 sticky top-0 z-40">
           <div className="flex items-center gap-3">
             <div className="w-8 h-8 rounded-full bg-zinc-300 overflow-hidden">
-              <img src="https://picsum.photos/seed/aman/100/100" alt="Profile" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+              <img src="/OscarLogo.png" alt="Profile" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
             </div>
             <span className="font-medium text-sm">Oscar</span>
           </div>

@@ -97,7 +97,7 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
       )}>
         <div className="pl-6 pr-6 py-6 flex items-center gap-4 mb-2">
           <div className="w-[42px] h-[42px] rounded-full bg-zinc-300 overflow-hidden shrink-0">
-            <img src="https://picsum.photos/seed/aman/100/100" alt="Profile" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+            <img src="/OscarLogo.png" alt="Profile" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
           </div>
           <div>
             <h2 className="text-[15.5px] font-medium text-zinc-900 leading-none">Oscar</h2>
