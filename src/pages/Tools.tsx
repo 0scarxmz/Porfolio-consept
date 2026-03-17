@@ -171,6 +171,16 @@ export default function Tools() {
           <img src="https://www.google.com/s2/favicons?domain=opencode.ai&sz=256" alt="OpenCode" className="w-full h-full object-contain scale-[1.1] contrast-125" referrerPolicy="no-referrer" />
         </div>
       )
+    },
+    {
+      name: 'Google AI Studio',
+      category: 'Development',
+      url: 'https://aistudio.google.com',
+      icon: (
+        <div className="w-11 h-11 rounded-xl overflow-hidden flex items-center justify-center bg-white border border-zinc-200/60 shadow-md shadow-zinc-300/60 p-1.5">
+          <img src="https://www.google.com/s2/favicons?domain=aistudio.google.com&sz=256" alt="Google AI Studio" className="w-full h-full object-contain" referrerPolicy="no-referrer" />
+        </div>
+      )
     }
   ];
 
