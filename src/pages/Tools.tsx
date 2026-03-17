@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react';
+import { Terminal } from 'lucide-react';
 
 const ToolCard: React.FC<{ tool: any }> = ({ tool }) => {
   const ref = useRef<HTMLDivElement>(null);
@@ -91,7 +92,7 @@ const ToolCard: React.FC<{ tool: any }> = ({ tool }) => {
       <div style={contentStyle} className="relative z-10 flex items-center gap-4 w-full">
         {tool.icon}
         <div>
-          <h3 className="text-[15px] font-medium text-zinc-900">{tool.name}</h3>
+          <h3 className="text-[15px] font-semibold text-zinc-900">{tool.name}</h3>
           <p className="text-[13px] text-zinc-500">{tool.category}</p>
         </div>
       </div>
@@ -158,6 +159,16 @@ export default function Tools() {
       icon: (
         <div className="w-11 h-11 rounded-xl overflow-hidden flex items-center justify-center bg-white border border-zinc-200/60 shadow-md shadow-zinc-300/60">
           <img src="https://9to5mac.com/wp-content/uploads/sites/6/2026/02/codex-app-icon-openai.jpg" alt="Codex" className="w-full h-full object-cover scale-[1.6]" referrerPolicy="no-referrer" />
+        </div>
+      )
+    },
+    {
+      name: 'OpenCode',
+      category: 'CLI',
+      url: 'https://opencode.ai',
+      icon: (
+        <div className="w-11 h-11 rounded-xl overflow-hidden flex items-center justify-center bg-white border border-zinc-200/60 shadow-md shadow-zinc-300/60 p-1.5">
+          <img src="https://www.google.com/s2/favicons?domain=opencode.ai&sz=256" alt="OpenCode" className="w-full h-full object-contain scale-[1.1] contrast-125" referrerPolicy="no-referrer" />
         </div>
       )
     }
