@@ -123,12 +123,12 @@ export default function Tools() {
       )
     },
     {
-      name: 'Notion',
+      name: 'Obsidian',
       category: 'Productivity',
-      url: 'https://notion.so',
+      url: 'https://obsidian.md',
       icon: (
         <div className="w-11 h-11 rounded-xl overflow-hidden flex items-center justify-center bg-white border border-zinc-200/60 shadow-md shadow-zinc-300/60 p-1.5">
-          <img src="https://www.google.com/s2/favicons?domain=notion.so&sz=256" alt="Notion" className="w-full h-full object-contain" referrerPolicy="no-referrer" />
+          <img src="https://www.google.com/s2/favicons?domain=obsidian.md&sz=256" alt="Obsidian" className="w-full h-full object-contain" referrerPolicy="no-referrer" />
         </div>
       )
     },
